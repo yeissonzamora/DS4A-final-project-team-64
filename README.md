@@ -24,7 +24,6 @@ En este folder se encuentran los siguientes archivos:
 * pipeline-Train.ipynb: This notebook contain the cleaning, encoding and training of some models.
 
 **application deployed in amazon web services**
-[Link to aplication] (http://18.224.184.100:5000/version2)
 http://18.224.184.100:5000/version2
 
 
