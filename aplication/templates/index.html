@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>COVID19 Bucaramanga city</title>
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/virus.svg') }}" />
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+
+    <!-- <link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link
+        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <style>
+        #chat {
+            position: fixed;
+            width: 48px;
+            height: 48px;
+            background: #6d7fcc;
+            bottom: 40px;
+            right: 0;
+            z-index: 1;
+            text-align: center;
+            line-height: 48px;
+            border-radius: 28px 0 0 28px;
+            font-size: 15px;
+            cursor: pointer;
+            color: white;
+        }
+
+        #chat:hover {
+            background-color: white;
+            color: #6d7fcc;
+            border: 5px;
+            border: #6d7fcc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <a id="chat" href="#begin">Begin</a>
+    </div>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src="{{ url_for('static', filename='images/ds4a.png') }}" class="img-fluid mx-auto d-block "
+                    alt="Responsive image" width=80% height=85%>
+            </div>
+
+            <ul class="list-unstyled components">
+                <!--<p>Dummy Heading</p>-->
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#" onclick='change_page("ReportSection");'>Colombia</a>
+                </li>
+                <li>
+                    <a href="#" onclick='change_page("ReportSectionbb2eb8f744d2a0f253d6");'>Bucaramanga</a>
+                </li>
+                <li>
+                    <a href="#" onclick='change_page("ReportSection63b9fccdce1ad04743b6");'>Death Ubications</a>
+                </li>
+                <li>
+                    <a href="#" onclick='change_page("ReportSection9947d33cb79352b0a30c");'>Unemployment</a>
+                </li>
+                <li>
+                    <a href="#" onclick='change_page("ReportSection3ef986bb60886c9ab536");'>Covid Model</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="#form" class="download">Know your Risk</a>
+                </li>
+                <li>
+                    <a href="#contact" class="article">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <!-- Header  -->
+        <a name="begin"></a>
+        <div id="content">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                        <h1 class="mx-auto" style="font-size:45px">COVID19 in Bucaramanga city</h1>
+                    </div>
+
+                    <div>
+                        <img src="{{ url_for('static', filename='images/escudo.JPG') }}" class="img-fluid"
+                            alt="Responsive image">
+                    </div>
+                </div>
+            </nav>
+
+            <!--Use iframe created in PowerBI-->
+            <iframe id="myiframe" width=100% height="650"
+                src="https://app.powerbi.com/view?r=eyJrIjoiMmQyODM4MjYtZmZlNy00ZTQxLWEwZDctZGI0NmVjYzkxNDNlIiwidCI6ImQ3MTgzMWNlLWViMDctNGZmZS05NTk3LWZlZDg2YWRmNWMxZSJ9"
+                frameborder="0" allowFullScreen="true"></iframe>
+            <hr>
+
+            <!-----------------------------ABOUT SECTION--------------------------------->
+            <header class="masthead" style="background-image: url('./static/images/aislamiento.png')">
+                <a name="about"></a>
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <div class="site-heading">
+                                <h1>About</h1>
+                                <span class="subheading">COVID19 in Bucaramanga city</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="post-preview">
+                            <a>
+                                <h2 class="post-title">
+                                    COVID 19 in Bucaramanga city.
+                                </h2>
+                                <h3 class="post-subtitle">
+                                    Introduction
+                                </h3>
+                            </a>
+                            <p class="post-meta">
+                                In the year 2020, health events have occurred worldwide that have led various countries
+                                to declare a state of emergency in health matters, due to the high risks of contagion
+                                and spread of COVID 19. As this is a virus that attacks the respiratory system, with
+                                high spread and contagion, and in some cases even fatal. In this sense, the Ministry of
+                                Health and Social Protection through Resolution No. 385 of March 12, 2020, declared a
+                                health emergency throughout the national territory until May 30, 2020. In turn, the
+                                Governor of the Department of Santander with authorization from the Departmental Risk
+                                Management Council declared the Public Calamity in the 87 municipalities of the
+                                department, by Decree No. 193 of March 16, 2020. Likewise, the Municipal Mayor of
+                                Bucaramanga, by Decree No. 0084 of March 16, 2020, adopted sanitary measures and
+                                transitory actions to the preservation of life and risk mitigation, on the occasion of
+                                the situation of the declaration of health emergency due to the Coronavirus (COVID 19),
+                                and other provisions were issued.
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="post-preview">
+                            <a>
+                                <h2 class="post-title">
+                                    business context.
+                                </h2>
+                                <h3 class="post-subtitle">
+                                    Business Problem
+                                </h3>
+                            </a>
+                            <p class="post-meta">
+                                The mayor's office of Bucaramanga is a public entity that manages and guarantees the
+                                correct execution of Bucaramanga city projects in favor of the benefit of the citizens.
+                                Due to the COVID19 pandemic, Bucaramanga city was declared under health emergency by the
+                                national government. Also, the mayor adopted action and prevention measures. For that
+                                reason, the city requires taking advantage of the data provided by health entities in
+                                order to characterize the different indicators related to the pandemic to support the
+                                decision-making of the city's risk committee. We are interested in discovering and
+                                understanding unnoticed trends in COVID19 in the hospitable and epidemiologic fields
+                                that may be helpful to improve the current decision making.
+                            </p>
+                        </div>
+                        <div class="post-preview">
+                            <a>
+                                <h3 class="post-subtitle">
+                                    Business Impact.
+                                </h3>
+                            </a>
+                            <p class="post-meta">
+                                The economic, social, psychological and environmental aspects of Bucaramanga families
+                                have been affected by the COVID19 pandemic, this means a direct impact on their economic
+                                livelihood. For this reason, the municipal administration has the obligation to
+                                guarantee adequate decision-making to reduce the impact on families, providing solutions
+                                and strategic actions to minimize the impact and improve living conditions.
+                            </p>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr>
+
+            <!--------------------------Know your risk section------------------------------------------------------------->
+            <header class="masthead" width=50% height="48" style="background-image: url('./static/images/form2.jpg')">
+                <a name="form"></a>
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <div class="site-heading">
+                                <h1>Know your risk</h1>
+                                <span class="subheading">of dead by COVID19</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-10 mx-auto">
+                        <div class="post-preview">
+                            <h2 class="post-title text-center">
+                                Enter your information:
+                            </h2>
+                            <form name="formname" onsubmit="return false">
+                                <div class="row">
+                                    <div class="form-group col-lg-4">
+                                        <label for="age">Age:</label>
+                                        <select class="form-control" id="age">
+                                            <option>5</option>
+                                            <option>10</option>
+                                            <option>15</option>
+                                            <option>20</option>
+                                            <option>25</option>
+                                            <option>30</option>
+                                            <option>35</option>
+                                            <option>40</option>
+                                            <option>45</option>
+                                            <option>50</option>
+                                            <option>55</option>
+                                            <option>60</option>
+                                            <option>65</option>
+                                            <option>70</option>
+                                            <option>75</option>
+                                            <option>80</option>
+                                            <option>85</option>
+                                            <option>90</option>
+                                            <option>95</option>
+                                            <option>100</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label for="stratum">Social stratum:</label>
+                                        <select class="form-control" id="stratum">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group col-lg-4">
+                                        <label for="ocupation">Ocupation:</label>
+                                        <select class="form-control" id="ocupation">
+                                            <option value="0">PUBLIC FORCE</option>
+                                            <option value="1000">MEMBERS OF THE EXECUTIVE BRANCH, LEGISLATIVE BODIES AND
+                                                MANAGEMENT STAFF OF THE PUBLIC AND BUSINESS ADMINISTRATION</option>
+                                            <option value="2000">UNIVERSITY PROFESSIONALS, SCIENTISTS AND INTELLECTUALS
+                                            </option>
+                                            <option value="3000">TECHNICIANS, NON-UNIVERSITY POSTSECONDARY AND
+                                                ASSISTANTS
+                                            </option>
+                                            <option value="4000">OFFICE EMPLOYEES</option>
+                                            <option value="5000">SERVICE WORKERS AND SELLERS</option>
+                                            <option value="6000">FARMERS, WORKERS AND AGRICULTURAL, FOREST AND FISHERIES
+                                                WORKERS</option>
+                                            <option value="7000">OFFICIALS, OPERATORS, CRAFTSMEN, AND WORKERS IN THE
+                                                MANUFACTURING, CONSTRUCTION AND MINING INDUSTRIES</option>
+                                            <option value="8000">INSTALLATION, MACHINE AND ASSEMBLY OPERATORS
+                                            </option>
+                                            <option value="9000">UNQUALIFIED WORKERS</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class=" text-center">
+                                    <label for="sel1">Gender:</label>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"
+                                            value="M" checked>
+                                        <label class="form-check-label" for="inlineRadio1">Men</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio2"
+                                            value="F">
+                                        <label class="form-check-label" for="inlineRadio2">Women</label>
+                                    </div>
+                                </div>
+
+
+                                <h4 class="post-title text-center">
+                                    Comorbidities and complications:
+                                </h4>
+
+                                <div class="row">
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="trabsalud">
+                                        <label class="form-check-label" for="exampleCheck1">Health worker</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="tos">
+                                        <label class="form-check-label" for="exampleCheck1">Cough</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="fiebre">
+                                        <label class="form-check-label" for="exampleCheck1">Fever</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="odinofagia">
+                                        <label class="form-check-label" for="exampleCheck1">Odynophagia</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="dif_res">
+                                        <label class="form-check-label" for="exampleCheck1">Respiratory distress</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="adinamia">
+                                        <label class="form-check-label" for="exampleCheck1">Adynamia</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="asma">
+                                        <label class="form-check-label" for="exampleCheck1">Asthma</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="epoc">
+                                        <label class="form-check-label" for="exampleCheck1">Epoc</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="diabetes">
+                                        <label class="form-check-label" for="exampleCheck1">Diabetes</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="vih">
+                                        <label class="form-check-label" for="exampleCheck1">HIV</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="enf_card">
+                                        <label class="form-check-label" for="exampleCheck1">heart disease</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="cancer">
+                                        <label class="form-check-label" for="exampleCheck1">Cancer</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="desnutricion">
+                                        <label class="form-check-label" for="exampleCheck1">Malnutrition</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="obesidad">
+                                        <label class="form-check-label" for="exampleCheck1">Obesity</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="ins_renal">
+                                        <label class="form-check-label" for="exampleCheck1">Renal insufficiency</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="otr_medinm">
+                                        <label class="form-check-label" for="exampleCheck1">immunosuppressants</label>
+                                    </div>
+
+                                    <!--<div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="fumador">
+                                        <label class="form-check-label" for="exampleCheck1">Smoker</label>
+                                    </div>-->
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="tuberculosis">
+                                        <label class="form-check-label" for="exampleCheck1">Tuberculosis</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="hallaz_rad">
+                                        <label class="form-check-label" for="exampleCheck1">Findings in the
+                                            thorax</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="der_ple">
+                                        <label class="form-check-label" for="exampleCheck1">Pleural effusion</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="der_per">
+                                        <label class="form-check-label" for="exampleCheck1">Pericardial effusion</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="miocarditi">
+                                        <label class="form-check-label" for="exampleCheck1">Myocarditis</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="septicemia">
+                                        <label class="form-check-label" for="exampleCheck1">Septicemia</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="falla_resp">
+                                        <label class="form-check-label" for="exampleCheck1">Respiratory failure</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="rinorrea">
+                                        <label class="form-check-label" for="exampleCheck1">Rhinorrhea</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="conjuntivi">
+                                        <label class="form-check-label" for="exampleCheck1">Conjunctivitis</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="cefalea">
+                                        <label class="form-check-label" for="exampleCheck1">Headache</label>
+                                    </div>
+
+                                    <div class="form-check col-lg-4">
+                                        <input type="checkbox" class="form-check-input" id="diarrea">
+                                        <label class="form-check-label" for="exampleCheck1">Diarrhea</label>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="text-center m-3">
+                                    <button type="submit" class="btn btn-primary" onclick="service()">Get Risk</button>
+                                </div>
+                            </form>
+
+                            <div class="m-5 text-center">
+                                <h1 id="riesgo" style="color: #7386D5;"></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!--------------------------------------------------contact section---------------------------------------------------->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-10 mx-auto">
+                        <div class="post-preview text-center ">
+                            <h1>
+                                Team 64 members
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section>
+                <a name="contact"></a>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url_for('static', filename='images/yei3.JPG') }}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4"
+                                    style="font-size:2.5rem; font-family:Catamaran; font-weight: 800!important">Yeisson
+                                    Zamora</h2>
+                                <p>
+                                <ul
+                                    style="margin-block-start: 1em;margin-block-end: 1em; margin-inline-start: 0px;margin-inline-end: 0px;box-sizing: border-box;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;">
+                                    <li>
+                                        Uni. Distrital Francisco José de Caldas (Electronic Engineer)
+                                    </li>
+                                    <li>
+                                        System analyst at Asesoftware
+                                    </li>
+                                    <li>
+                                        Selected interested: Python development, Data cloud, Machine learning.
+                                    </li>
+                                </ul>
+                                </p>
+                                <div class="social-icons">
+                                    <a class="social-icon"
+                                        href="https://www.linkedin.com/in/yeisson-johan-zamora-leon-4b931b4b/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a class="social-icon" href="https://github.com/yeissonzamora"><i
+                                            class="fab fa-github"></i></a>
+                                    <a class="social-icon" href="https://www.facebook.com/yeissonjohan"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url_for('static', filename='images/jeffrey.jpeg') }}" alt="" width=65%
+                                    height=65%>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <h2 class="display-4"
+                                    style="font-size:2.5rem; font-family:Catamaran; font-weight: 800!important">
+                                    Jeffrey Cruz
+                                </h2>
+                                <p>
+                                <ul
+                                    style="margin-block-start: 1em;margin-block-end: 1em; margin-inline-start: 0px;margin-inline-end: 0px;box-sizing: border-box;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;">
+                                    <li>
+                                        Uni. Nacional de Colombia (Economist)
+                                    </li>
+                                    <li>
+                                        Model development at Ministerio de Hacienda y Crédito Público.
+                                    </li>
+                                    <li>
+                                        Selected interested: Machine learning, Economic and Financial models.
+                                    </li>
+                                </ul>
+                                </p>
+                                <div class="social-icons">
+                                    <a class="social-icon" href="https://www.linkedin.com/in/jeffrey-cruz-94777b139/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <a name="contact"></a>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url_for('static', filename='images/javier.jpeg') }}" alt="" width=65%
+                                    height=65%>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4"
+                                    style="font-size:2.5rem; font-family:Catamaran; font-weight: 800!important">Javier
+                                    Becerra</h2>
+                                <p>
+                                <ul
+                                    style="margin-block-start: 1em;margin-block-end: 1em; margin-inline-start: 0px;margin-inline-end: 0px;box-sizing: border-box;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;">
+                                    <li>
+                                        Uni. Pontificia Universidad Javeriana (Electronic Engineer)
+                                    </li>
+                                    <li>
+                                        Pofessional I Chief Data Office at Davivienda
+                                    </li>
+                                    <li>
+                                        Selected interested: Machine learning.
+                                    </li>
+                                </ul>
+                                </p>
+                                <div class="social-icons">
+                                    <a class="social-icon" href="https://www.linkedin.com/in/javierbecerrabedoya/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <a class="social-icon" href="https://github.com/javierbecerra04"><i
+                                            class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="" width=65%
+                                    height=65%>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <h2 class="display-4"
+                                    style="font-size:2.5rem; font-family:Catamaran; font-weight: 800!important">
+                                    David Pavon
+                                </h2>
+                                <p>
+                                <ul
+                                    style="margin-block-start: 1em;margin-block-end: 1em; margin-inline-start: 0px;margin-inline-end: 0px;box-sizing: border-box;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;">
+                                    <li>
+                                        Uni. de los Andes (Physicist and Electronic Engineer)
+                                    </li>
+                                    <li>
+                                        Selected interested: Computer vision, Embedded systems, Deep Learning.
+                                    </li>
+                                </ul>
+                                </p>
+                                <div class="social-icons">
+                                    <a class="social-icon" href="https://www.linkedin.com/in/davidalejandropabon/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <a name="contact"></a>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="" width=65%
+                                    height=65%>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4"
+                                    style="font-size:2.5rem; font-family:Catamaran; font-weight: 800!important">Juan
+                                    Manuel Rodriguez</h2>
+                                <p>
+                                <ul
+                                    style="margin-block-start: 1em;margin-block-end: 1em; margin-inline-start: 0px;margin-inline-end: 0px;box-sizing: border-box;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;">
+                                    <li>
+                                        Uni. de los Andes (System Engineer)
+                                    </li>
+                                    <li>
+                                        Data scientist at Tyba
+                                    </li>
+                                    <li>
+                                        Selected interested: Data management, Data analytics
+                                    </li>
+                                </ul>
+                                </p>
+                                <div class="social-icons">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="" width=65%
+                                    height=65%>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <h2 class="display-4"
+                                    style="font-size:2.5rem; font-family:Catamaran; font-weight: 800!important">
+                                    David Ospina
+                                </h2>
+                                <p>
+                                <ul
+                                    style="margin-block-start: 1em;margin-block-end: 1em; margin-inline-start: 0px;margin-inline-end: 0px;box-sizing: border-box;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;">
+                                    <li>
+                                        Uni. de Los Andes (Economy)
+
+                                    </li>
+                                    <li>
+                                        Uni. Pontificia Universidad Javeriana (Master in Business Analytics)
+                                    </li>
+                                    <li>
+                                        Data Engineer at McKinsey & Company
+                                    </li>
+                                </ul>
+                                </p>
+                                <div class="social-icons">
+                                    <a class="social-icon"
+                                        href="https://www.linkedin.com/in/david-ospina-piedrahita/"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <a name="contact"></a>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 order-lg-2">
+                            <div class="p-5">
+                                <img class="img-fluid rounded-circle"
+                                    src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="" width=65%
+                                    height=65%>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 order-lg-1">
+                            <div class="p-5">
+                                <h2 class="display-4"
+                                    style="font-size:2.5rem; font-family:Catamaran; font-weight: 800!important">Edgar
+                                    Cruz</h2>
+                                <p>
+                                <ul
+                                    style="margin-block-start: 1em;margin-block-end: 1em; margin-inline-start: 0px;margin-inline-end: 0px;box-sizing: border-box;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;">
+                                    <li>
+                                        Uni. Distrital Francisco Jose de Caldas (System Engineer)
+                                    </li>
+                                    <li>
+                                        Colfondos
+                                    </li>
+                                </ul>
+                                </p>
+                                <div class="social-icons">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+        </div>
+    </div>
+
+    <!--Import Scripts-->
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/myScript.js') }}"></script>
+</body>
+
+</html>
