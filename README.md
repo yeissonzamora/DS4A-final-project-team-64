@@ -1,8 +1,8 @@
 # DS4A-final-project-team-64
-This repository contain the sources file os the project developed by the team 64in the course DS4A.
+This repository contain the sources file of the project developed by the team 64in the course DS4A.
 
 
-Aplication Folder:
+**Aplication Folder:**
 
 In this folder are all the source files necessary to deploy the application in a local environment. The application runs with the flask python library. then the files that the folder contains.
 
@@ -12,16 +12,22 @@ In this folder are all the source files necessary to deploy the application in a
 * scalerEdad.p This file contains the encoder created in the training of the model and is used in the prediction
 * Static folder: contains the css, javascript and images files used in the application
 
-Python files Folder:
+**Python files Folder:**
 
 En este folder se encuentran los siguientes archivos:
 
-*loaderSQLPython.iptnb: is used to load the excel files to postgresql database
-*mlModelPython: este archivo realiza la prediccion de enfermos en la base de datos de postgres e inserta los resultados en la base de datos
+* loaderSQLPython.iptnb: is used to load the excel files to postgresql database
+* mlModelPython: este archivo realiza la prediccion de enfermos en la base de datos de postgres e inserta los resultados en la base de datos
 * modelLog.model This file contains the trained model
 * scalerEdad.p This file contains the encoder created in the training of the model and is used in the prediction
 * Static folder: contains the css, javascript and images files used in the application
-*pipeline-Train.ipynb: This notebook contain the cleaning, encoding and training of some models.
+* pipeline-Train.ipynb: This notebook contain the cleaning, encoding and training of some models.
+
+**application deployed in amazon web services**
+[Link to aplication] (http://18.224.184.100:5000/version2)
+http://18.224.184.100:5000/version2
+
+
 
 
 
