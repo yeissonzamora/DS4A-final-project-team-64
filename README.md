@@ -29,6 +29,8 @@ http://18.224.184.100:5000/version2
 **Architecture_diagram.jpeg**
 * It is the image of the architecture diagram used for the construction of the application.
 
+![alt text](https://github.com/yeissonzamora/DS4A-final-project-team-64/blob/main/architecture_diagram.JPG)
+
 
 
 
